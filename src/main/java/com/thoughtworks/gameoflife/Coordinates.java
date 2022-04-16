@@ -5,7 +5,8 @@ import java.util.Objects;
 public class Coordinates {
     int x;
     int y;
-    Coordinates(int x, int y){
+
+    Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -15,13 +16,13 @@ public class Coordinates {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Coordinates coordinates = (Coordinates) o;
-        if((this.x == coordinates.x) && (this.y == coordinates.y))
+        if ((this.x == coordinates.x) && (this.y == coordinates.y))
             return true;
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(x,y);
+        return Objects.hash(x, y);
     }
 }
