@@ -14,7 +14,7 @@ public class Universe {
         List<Coordinates> newGeneration = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                boolean alive = this.aliveCells.contains(new Coordinates(i, j));
+                boolean alive = isAlive(i, j);
                 if (alive) {
                     int neighbours = neighbours(i, j);
                     if (neighbours == 2 || neighbours == 3)
@@ -32,12 +32,16 @@ public class Universe {
 
     private int neighbours(int i, int j) {
         int neighbours = 0;
-        for (int k = i - 1; k < i + 1; k++) {
-            for (int l = j - 1; l < j + 1; l++) {
-                if (this.aliveCells.contains(new Coordinates(i, j)))
+        for (int k = i - 1; k <= i + 1; k++) {
+            for (int l = j - 1; l <= j + 1; l++) {
+                if (isAlive(k, l) && (k != i || l != j) )
                     neighbours += 1;
             }
         }
-        return neighbours - 1;
+        return neighbours;
+    }
+
+    public boolean isAlive(int i, int j) {
+        return this.aliveCells.contains(new Coordinates(i, j));
     }
 }

@@ -30,7 +30,7 @@ public class UniverseTest {
     }
 
     @Test
-    void lifeShouldRemainSameWhenToadPatternIsGiven() {
+    void lifeShouldOscillateInTwoPhaseWhenToadPatternIsGiven() {
         List<Coordinates> aliveCells = Arrays.asList(new Coordinates(1, 1), new Coordinates(1, 2), new Coordinates(1, 3), new Coordinates(2, 2), new Coordinates(2, 3), new Coordinates(2, 4));
         Universe universe = new Universe(aliveCells);
         List<Coordinates> expected = Arrays.asList(new Coordinates(1, 1), new Coordinates(0, 2), new Coordinates(1, 4), new Coordinates(2, 1), new Coordinates(3, 3), new Coordinates(2, 4));
@@ -41,7 +41,7 @@ public class UniverseTest {
     }
 
     @Test
-    void lifeShouldRemainSameWhenBlinkerPatternIsGiven() {
+    void lifeShouldOscillateWhenBlinkerPatternIsGiven() {
         List<Coordinates> aliveCells = Arrays.asList(new Coordinates(1, 1), new Coordinates(1, 0), new Coordinates(1, 2));
         Universe universe = new Universe(aliveCells);
         List<Coordinates> expected = Arrays.asList(new Coordinates(1, 1), new Coordinates(0, 1), new Coordinates(2, 1));
